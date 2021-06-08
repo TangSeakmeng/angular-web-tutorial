@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TestingStore } from '../stores/testing.store';
 
 interface IFormData {
   fullName: string;
@@ -21,7 +22,10 @@ export class DefaultModuleComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-  ) { }
+    public testingStore: TestingStore
+  ) {
+    this.testingStore.getData();
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

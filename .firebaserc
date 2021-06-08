@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "camwin-87018": {
+      "hosting": {
+        "web-demo": [
+          "camwin-87018"
+        ]
+      }
+    }
+  }
+}
