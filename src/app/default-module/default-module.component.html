@@ -1,0 +1,37 @@
+<div class="containerWrapper primaryContainer">
+    <!-- <div class="inputContainer">
+        <label for="txtFullname">Fullname: {{ fullName }}</label>
+        <input id="txtFullname" placeholder="enter your fullname" (change)="txtFullnameChanged($event)">
+    </div> -->
+
+    <!-- <div class="inputContainer">
+        <label for="txtEmail">Email: {{ email }}</label>
+        <input id="txtEmail" placeholder="enter your email" [(ngModel)]="email">
+    </div> -->
+
+    <form [formGroup]="form" (ngSubmit)="formSubmitted(form.value)">
+        <div class="inputContainer">
+            <label for="txtFullname">Fullname: {{ fullName }}</label>
+            <input id="txtFullname" placeholder="enter fullname" formControlName="fullName">
+            <p class="errorMessageLabel" *ngIf="form.controls['fullName']?.touched && form.controls['fullName']?.errors?.required">Please Input Fullname.</p>
+        </div>
+
+        <div class="inputContainer">
+            <label for="txtEmail">Email: {{ email }}</label>
+            <input id="txtEmail" placeholder="enter email" formControlName="email">
+        </div>
+
+        <div class="inputContainer">
+            <label for="inputPassword">Password</label>
+            <input id="inputPassword" placeholder="enter password" formControlName="password">
+        </div>
+
+        <div class="inputContainer">
+            <label for="inputConfirmPassword">Confirm Password</label>
+            <input id="inputConfirmPassword" placeholder="enter confirm password" formControlName="confirmPassword">
+            <p class="errorMessageLabel" *ngIf="form.controls['confirmPassword']?.touched && form.controls['confirmPassword']?.errors?.confirmedValidator">Confirm Password is not match.</p>
+        </div>
+
+        <button>Submit</button>
+    </form>
+</div>
